@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        };
+    })
+
     runGame("addition");
 })
 
@@ -23,6 +29,9 @@ function runGame(gameType) {
     // Generate two random numbers between 1 and 25
     // Math.floor rounds down to the whole number
     // Math.random generates random numbers
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
 
     let num1 = Math.floor(Math.random() * 25) + 1; // Personal comment: Instead of Math.floor and then adding 1, Math.ceil should be more efficient
     let num2 = Math.floor(Math.random() * 25) + 1;
